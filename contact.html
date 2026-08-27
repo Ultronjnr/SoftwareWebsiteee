@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" type="logo-icon" href="images/Lead Tech.png">    
+      <meta name="description" content="Contact LeadTech Software Solutions for custom software, automation, mobile app development, and digital transformation support.">
+      <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://leadtechsoftwaresolutions.co.za/contact.html">
+    <meta property="og:title" content="Contact LeadTech Software Solutions | Request a Consultation">
+    <meta property="og:description" content="Contact LeadTech for custom software, automation, mobile app, and digital transformation support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leadtechsoftwaresolutions.co.za/contact.html">
+    <meta name="author" content="LeadTechSoftwareSolutions">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
+
+    <title>Contact LeadTech Software Solutions | Request a Consultation</title>
+    <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+   <link rel="stylesheet" href="css/fontawesome.css">
+  <link rel="stylesheet" href="css/templatemo-finance-business.css">
+  <link rel="stylesheet" href="css/owl.css">
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+<style>
+  /* Premium glassmorphism for the map container */
+  #map-wrapper{
+    max-width: 980px;
+    margin: 40px auto;
+    padding: 22px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+
+    /* frosted glass base */
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow:
+      0 20px 40px rgba(3,10,26,0.50),        /* strong outer shadow for depth */
+      inset 0 1px 0 rgba(255,255,255,0.04);  /* subtle inner rim */
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+
+  /* thin glossy highlight */
+  #map-wrapper::before{
+    content: "";
+    position: absolute;
+    left: -10%;
+    top: -30%;
+    width: 120%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+    transform: rotate(-6deg);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.9;
+  }
+
+  /* optional subtle grain for higher-fidelity glass look */
+  #map-wrapper::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" opacity="0.02"><rect width="100%" height="100%" fill="%23000000"/></svg>');
+    opacity: 0.02;
+    pointer-events: none;
+    mix-blend-mode: normal;
+  }
+
+  .map-inner{
+    width: 100%;
+    height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    /* slightly darker inner card to let the map pop */
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+    box-shadow: inset 0 6px 30px rgba(2,6,23,0.20);
+    border: 1px solid rgba(255,255,255,0.03);
+    transform: translateZ(0); /* promote to own layer for smoother rendering */
+  }
+
+  .map-frame{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: contrast(0.98) saturate(1.05);
+    will-change: transform, filter;
+  }
+
+  .address-card{
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    color: rgba(255,255,255,0.95); /* light text for glass surface */
+    text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+  }
+
+  .address-card .addr { display:flex; flex-direction:column; gap:6px; }
+  .address-card .addr strong { color: rgba(255,255,255,0.95); }
+
+  .map-actions a, .map-actions button{
+    background: linear-gradient(180deg,#0b69ff,#0860d6);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(11,105,255,0.14);
+    transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+    backdrop-filter: none; /* buttons stay crisp */
+  }
+
+  .map-actions a:hover, .map-actions button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(11,105,255,0.18);
+    opacity: 0.98;
+  }
+
+  /* accessibility / focus */
+  .map-actions a:focus, .map-actions button:focus{
+    outline: 2px solid rgba(11,105,255,0.22);
+    outline-offset: 3px;
+  }
+
+  /* responsive tweaks */
+  @media (max-width:600px){
+    #map-wrapper{ padding:12px; margin:24px 12px; }
+    .map-inner{ height: 320px; }
+    .map-actions a, .map-actions button{ padding:8px 10px; border-radius:8px; }
+  }
+
+  /* graceful degradation for browsers without backdrop-filter */
+  @supports not ((-webkit-backdrop-filter: blur(14px)) or (backdrop-filter: blur(14px))) {
+    #map-wrapper {
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      box-shadow: 0 18px 36px rgba(2,6,23,0.40);
+    }
+  }
+
+
+  /* Responsive heading and email link adjustments */
+  #map-wrapper h2{
+    color: #ffffff; /* white heading */
+    text-align: center;
+    font-size: clamp(1.25rem, 2.6vw, 2rem); /* responsive size */
+    margin: 0 0 16px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  /* icon next to the heading */
+  #map-wrapper h2 i {
+    margin-right: 10px;
+    color: #ffffff;              /* icon matches heading color */
+    font-size: 1.05em;
+    vertical-align: middle;
+  }
+
+  /* Ensure contact cards center their content (keeps icons + text aligned) */
+  .contact-card {
+    text-align: center;
+  }
+
+  /* Make mailto links responsive and avoid wrapping */
+  .contact-card a[href^="mailto:"],
+  .address-card .map-actions a[href^="mailto:"],
+  .address-card .map-actions a {
+    display: inline-block;
+    text-align: center;
+    color: #00baff; /* keep accent color for link visibility; change to #fff if you want white */
+    font-weight: 700;
+    /* Responsive font size so the long email will shrink on small viewports */
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    white-space: normal;        /* allow wrapping */
+    overflow: visible;
+    text-overflow: clip;        /* don't show ellipsis */
+    max-width: 100%;
+    word-break: break-word;     /* break long email if needed */
+    overflow-wrap: anywhere;
+  }
+
+  /* Small-screen tweak so the actions stack nicely */
+  @media (max-width: 600px) {
+    .address-card {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    #map-wrapper { padding: 12px; }
+  }
+
+  /* Add clear spacing between the callback form and footer */
+  .callback-form {
+    padding: 60px 0;
+    margin-bottom: 72px; /* space before footer */
+    background: transparent; /* keep existing look, adjust if you want a visible separator */
+  }
+
+  footer {
+    margin-top: 24px; /* extra safe spacing so footer isn't flush against previous section */
+  }
+  </style>
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+ <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+          <ul class="left-info">
+              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i>info@leadtechsoftwaresolutions.co.za</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="right-icons">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>LeadTech SoftwareSolutions</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Our Services</a>
+              </li>                          
+              <li class="nav-item">
+                <a class="nav-link" href="howwework.html">How We Work</a>
+              </li>
+               <li class="nav-item">
+               <a class="nav-link" href="projects.html">Our Portfolio</a>
+              </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+                <span class="sr-only">(current)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<!-- Banner Starts Here -->
+<div class="main-banner header-text" id="top">
+  <div class="Modern-Slider">
+    <!-- Item -->
+    <div class="item item-1 relative h-screen w-full">
+      <div class="img-fill h-full w-full relative">
+        <!-- VIDEO BACKGROUND -->
+        <video class="bg-video absolute inset-0 object-cover w-full h-full z-0" autoplay loop muted playsinline>
+          <source src="videos/article_Dot_1280x720.mp4" type="video/mp4" />
+        </video>
+
+        <!-- TEXT CONTENT + LOTTIE -->
+        <div class="text-content absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-heading green-heading services-heading">
+                  <h2><em>Contact Us</em></h2>
+                  <span>We are passionate innovators dedicated to delivering with cutting-edge solutions that empower your business.</span>
+
+                  <!-- LOTTIE ANIMATION -->
+           <div class="lottie-wrapper">
+ <div id="lottie-aboutus22"></div>
+
+  </div>
+
+               </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+       <section
+    aria-label="App and web design process"
+    class="py-20"
+    id="process"
+    tabindex="0"
+  >
+    <div aria-hidden="true" class="background-animation">
+      <img
+        alt="Abstract tech animation with glowing circuits and nodes in blue tones"
+        class="bg-tech-1"
+        height="150"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/f56365d0-1173-4f1c-34cf-826f7b349883.jpg"
+        width="150"
+      />
+      <img
+        alt="Abstract tech animation with glowing circuits and nodes in blue tones"
+        class="bg-tech-2"
+        height="150"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/f56365d0-1173-4f1c-34cf-826f7b349883.jpg"
+        width="150"
+      />
+      <img
+        alt="Abstract tech animation with glowing circuits and nodes in blue tones"
+        class="bg-tech-3"
+        height="150"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/f56365d0-1173-4f1c-34cf-826f7b349883.jpg"
+        width="150"
+      />
+    </div>
+   <!-- Support Section -->
+    <div class="contact-section" data-aos="fade-up">
+      <h2>Need More Help?</h2>
+      <p>Our dedicated support team is available 24/7 to assist you with any issues or inquiries.</p>
+      <a href="https://wa.me/27679619210"  class="contact-button">Contact our Support Center</a>
+    </div>
+    <!-- Page Content -->
+             <div class="lottie-container2">
+        <div id="lottie-aboutus225" class="lottie-aboutus225">
+ <div class="container"> </div>
+      </div>
+    </div>
+  <section class="contact-page">
+    <div class="contact-contact-info">
+      <div class="contact-card" data-aos="zoom-in-up">
+        <i class="fa fa-whatsapp"></i>
+        <h4>Whatsapp</h4>
+        <p>Need help? We're here for you!</p>
+        <a href="https://wa.me/27679619210" target="_blank">WhatsApp: 067 961 9210</a>
+
+      </div>
+      <div class="contact-card" data-aos="zoom-in-up" data-aos-delay="100">
+        <i class="fa fa-envelope"></i>
+        <h4>Email</h4>
+        <p>Drop us a message anytime.</p>
+        <a href="mailto:info@leadtechsoftwaresolutions.co.za">info@leadtechsoftwaresolutions.co.za</a>
+      </div>
+   
+    </div>
+
+ 
+
+    <!-- FAQ Section -->
+<div class="contact-section faq" data-aos="fade-up">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item" data-aos="fade-left" data-aos-delay="100">
+    <h4>Do you provide support after business hours or on weekends?</h4>
+    <p>Yes. Our support team is available 7 days a week to assist you with any urgent requests.</p>
+  </div>
+  <div class="faq-item" data-aos="fade-left" data-aos-delay="200">
+    <h4>Can I customize your services to fit my specific project needs?</h4>
+    <p>Absolutely! We tailor our solutions to meet your unique goals and requirements.</p>
+  </div>
+  <div class="faq-item" data-aos="fade-left" data-aos-delay="400">
+    <h4>How do I request a quote or consultation?</h4>
+    <p>Simply fill out our contact form or email us directly. We’ll schedule a quick call to discuss your project and provide a custom quote.</p>
+  </div>
+
+  <div class="faq-item" data-aos="fade-left" data-aos-delay="500">
+    <h4>Do you offer long-term maintenance or post-launch support?</h4>
+    <p>Yes, we provide ongoing maintenance and performance optimization to ensure your project stays secure and up to date.</p>
+  </div>
+</div>
+
+ 
+
+</section>
+      
+
+
+<!-- Request a Callback Form -->
+<div class="callback-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading green-heading">
+          <h2>Request a <em>call back</em></h2>
+          <span>Need assistance or have questions? Please leave your details, and one of our consultants will get back to you shortly.</span>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="contact-form">
+          <form id="contact" action="/api/forms" method="POST" data-endpoint="forms">
+            <div class="row">
+              <div class="col-lg-4 col-md-12 col-sm-12">
+                <label class="block text-white-700 font-semibold mb-2" for="callback-name">
+                Name
+                </label>
+                <fieldset>
+                  <input
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    id="callback-name"
+                    placeholder="Full Name"
+                    required
+                    aria-label="Full Name"
+                    aria-describedby="callback-name-error"
+                  />
+                  <span id="callback-name-error" class="error-message"></span>
+                </fieldset>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12">
+                <label class="block text-white-700 font-semibold mb-2" for="callback-email">
+                 Email
+                </label>
+                <fieldset>
+                  <input
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    id="callback-email"
+                    placeholder="E-Mail Address"
+                    required
+                    aria-label="Email Address"
+                    aria-describedby="callback-email-error"
+                  />
+                  <span id="callback-email-error" class="error-message"></span>
+                </fieldset>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12">
+                <label class="block text-white-700 font-semibold mb-2" for="callback-subject">
+                 Subject
+                </label>
+                <fieldset>
+                  <input
+                    name="subject"
+                    type="text"
+                    class="form-control"
+                    id="callback-subject"
+                    placeholder="Subject"
+                    required
+                    aria-label="Subject"
+                    aria-describedby="callback-subject-error"
+                  />
+                  <span id="callback-subject-error" class="error-message"></span>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <label class="block text-white-700 font-semibold mb-2" for="callback-message">
+                Message
+                </label>
+                <fieldset>
+                  <textarea
+                    name="message"
+                    rows="6"
+                    class="form-control"
+                    id="callback-message"
+                    placeholder="Your Message"
+                    required
+                    aria-label="Your Message"
+                    aria-describedby="callback-message-error"
+                  ></textarea>
+                  <span id="callback-message-error" class="error-message"></span>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="callback-submit" class="border-button">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+            <div id="callback-form-message" class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+       
+           <div class="lottie-unique-wrapper">
+  <div id="lottie-unique2"></div>
+</div>
+ 
+    <!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footer-item">
+            <h4>LeadTech SoftwareSolutions</h4>
+            <p>Driving operational efficiency, customer engagement, and measurable growth.</p>
+            <ul class="social-icons">
+              <li><a rel="nofollow" href="https://fb.com/templatemo" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-item">
+            <h4>Resource Library</h4>
+            <ul class="menu-list">
+              <li><a href="#">Our NewsLetters</a></li>
+              <li><a href="contact.html">FAQ</a></li>
+              <li><a href="#">Industries We Serve</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-item">
+            <h4>Explore More</h4>
+            <ul class="menu-list">
+               <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Quick Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-item last-item">
+            <h4>Contact Us</h4>
+            <div class="contact-form">
+             <form id="contact-footer-contact" action="/api/forms" method="POST" data-endpoint="forms">
+  <div class="row">
+    <div class="col-lg-12">
+      <fieldset>
+        <input name="name" type="text" class="form-control" id="contact-footer-contact-name"
+               placeholder="Full Name" required>
+        <span id="contact-footer-contact-name-error" class="error-message"></span>
+      </fieldset>
+    </div>
+    <div class="col-lg-12">
+      <fieldset>
+        <input name="email" type="email" class="form-control" id="contact-footer-contact-email"
+               placeholder="E-Mail Address" required>
+        <span id="contact-footer-contact-email-error" class="error-message"></span>
+      </fieldset>
+    </div>
+    <div class="col-lg-12">
+      <fieldset>
+        <textarea name="message" rows="6" class="form-control" id="contact-footer-contact-message"
+                  placeholder="Your Message" required></textarea>
+        <span id="contact-footer-contact-message-error" class="error-message"></span>
+      </fieldset>
+    </div>
+    <div class="col-lg-12">
+      <fieldset>
+        <button type="submit" id="contact-footer-contact-submit" class="filled-button">Send Message</button>
+      </fieldset>
+    </div>
+  </div>
+  <div id="contact-form-message" class="form-message"></div>
+</form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>Copyright &copy; 2022 LeadTech SoftwareSolutions. All rights reserved.
+            
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+  <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="js/custom.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/accordions.js"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sectionHeadings = document.querySelectorAll(".section-heading");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          } else {
+            entry.target.classList.remove("animate");
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    sectionHeadings.forEach((heading) => observer.observe(heading));
+  });
+</script>
+<script>$('.owl-testimonials').owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  autoplay: true,
+  autoplayTimeout: 3000,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 2
+    },
+    1000: {
+      items: 3
+    }
+  }
+});
+
+</script>
+<script>$('.owl-partners').owlCarousel({
+  loop: true,
+  margin: 10,
+ 
+  autoplay: true,
+  autoplayTimeout: 3000,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 2
+    },
+    1000: {
+      items: 3
+    }
+  }
+});
+
+</script>
+<script>
+  const lottieSecondary = document.getElementById("lottie-secondary");
+  lottie.loadAnimation({
+    container: lottieSecondary,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "https://lottie.host/c8a553c6-c1bd-495e-991a-2bd4f2a8167e/fNXVPkXFVZ.json",  // Replace with your Lottie file URL
+  });
+  
+
+</script>
+
+ <script>
+        // Lottie Animation
+        const lottieAboutUs225 = document.getElementById("lottie-aboutus225");
+        if (lottieAboutUs225) {
+            lottie.loadAnimation({
+                container: lottieAboutUs225,
+                renderer: "svg",
+                loop: true,
+                autoplay: true,
+                path: "https://lottie.host/b3c7390d-7387-46c8-b475-6d76ec5f650b/KOTf585hxL.json"
+            });
+        }
+
+        // Intersection Observer for smooth scroll animation
+        const lottieContainer2 = document.querySelector(".lottie-container2");
+        const needMoreHeader = document.querySelector("h2");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        lottieContainer2.classList.add("visible");
+                    } else {
+                        lottieContainer2.classList.remove("visible");
+                    }
+                });
+            },
+            {
+                threshold: 0.3, // Trigger when 30% of the h2 is visible
+                rootMargin: "0px" // Adjust if needed for earlier/later trigger
+            }
+        );
+
+        if (needMoreHeader) {
+            observer.observe(needMoreHeader);
+        }
+    </script>
+<script>
+  const lottieServices = document.getElementById("lottie-services");
+  lottie.loadAnimation({
+    container: lottieServices,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "https://lottie.host/28385f3b-1f83-492f-89c0-f9419c09af3b/bv7VIFN15Y.json",
+  });
+
+  // Optional: horizontal scroll effect
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const offsetX = 20 * Math.sin(scrollY / 100);
+    lottieServices.style.transform = `translateX(${offsetX}px)`;
+  });
+</script>
+<script>
+  const lottieUnique = document.getElementById("lottie-unique");
+  lottie.loadAnimation({
+    container: lottieUnique,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "https://lottie.host/919481ff-1c66-44dc-99fb-95e0809735bb/FfR4tW039r.json"  // Replace if you want a different animation
+  });
+</script>
+<script>
+  const lottieUnique2 = document.getElementById("lottie-unique2");
+  lottie.loadAnimation({
+    container: lottieUnique2,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "https://lottie.host/7c84b192-0606-4772-a16b-93ed23468c1e/ikPGtAMXdn.json"  // Replace if you want a different animation
+  });
+</script>
+ <script>const lottieAboutUs = document.getElementById("lottie-aboutus");
+lottie.loadAnimation({
+  container: lottieAboutUs,
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "https://lottie.host/1cecd873-5511-4b82-8062-4f73bb9f9478/ZCVeaSTb5y.json",
+});
+
+// Optional: horizontal scroll effect
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const offsetX = 20 * Math.sin(scrollY / 100);
+  lottieAboutUs.style.transform = `translateX(${offsetX}px)`;
+});
+</script>
+ <script>const lottieAboutUs2 = document.getElementById("lottie-aboutus2");
+lottie.loadAnimation({
+  container: lottieAboutUs2,
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "https://lottie.host/1ffa3ac2-3fe0-41f8-bd73-5baf5d7b5a75/cszyuuznCH.json",
+});
+
+// Optional: horizontal scroll effect
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const offsetX = 20 * Math.sin(scrollY / 100);
+  lottieAboutUs2.style.transform = `translateX(${offsetX}px)`;
+});
+</script>
+ <script>const lottieAboutUs22 = document.getElementById("lottie-aboutus22");
+lottie.loadAnimation({
+  container: lottieAboutUs22,
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "https://lottie.host/e83ae148-9706-4419-bb7b-7b7f3169a2b9/zfCg7TvR5z.json",
+});
+
+// Optional: horizontal scroll effect
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const offsetX = 20 * Math.sin(scrollY / 100);
+  lottieAboutUs22.style.transform = `translateX(${offsetX}px)`;
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact");
+    const formMessage = document.getElementById("callback-form-message");
+    const submitButton = document.getElementById("callback-submit");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Clear previous messages
+      formMessage.textContent = "";
+      formMessage.className = "form-message";
+
+      const formData = new FormData(form);
+      const name = formData.get("name").trim();
+      const email = formData.get("email").trim();
+      const subject = formData.get("subject").trim();
+      const message = formData.get("message").trim();
+
+      // Client-side validation
+      if (!name || !email || !subject || !message) {
+        formMessage.textContent = "Please fill in all fields.";
+        formMessage.classList.add("text-red-500");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        formMessage.textContent = "Please enter a valid email address.";
+        formMessage.classList.add("text-red-500");
+        return;
+      }
+
+      // Disable button + show spinner
+      submitButton.disabled = true;
+      const originalButtonText = submitButton.textContent;
+      submitButton.innerHTML = `Sending<span class="loading-spinner"></span>`;
+
+      try {
+        const response = await fetch("/api/forms", {
+          method: "POST",
+          headers: {
+            Accept: "application/json"
+          },
+          body: formData
+        });
+
+        if (response.ok) {
+          formMessage.textContent = "Thank you! We’ll get back to you shortly.";
+          formMessage.classList.add("text-green-500");
+          form.reset();
+        } else {
+          const data = await response.json();
+          formMessage.textContent = data.errors?.[0]?.message || "Submission failed. Please try again later.";
+          formMessage.classList.add("text-red-500");
+        }
+      } catch (error) {
+        formMessage.textContent = "Network error. Please check your connection.";
+        formMessage.classList.add("text-red-500");
+      } finally {
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.querySelector('form#contact.footer-contact');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (event) {
+        // Optional: Prevent default if you don't want the form to actually submit
+        // event.preventDefault();
+
+        alert("Thank you for contacting us! We will get back to you shortly.");
+      });
+    }
+  });
+</script>
+
+
+<script>
+document.getElementById('contact-footer-contact').addEventListener('submit', function(e) {
+  e.preventDefault(); // Stop default form submission
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const messageEl = document.getElementById('contact-form-message');
+
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      messageEl.textContent = "Thank you! Your message has been sent.";
+      messageEl.className = 'form-message text-green-500';
+      form.reset();
+    } else {
+      return response.json().then(data => {
+        if (Object.hasOwn(data, 'errors')) {
+          messageEl.textContent = data["errors"].map(error => error["message"]).join(", ");
+        } else {
+          messageEl.textContent = "Oops! Something went wrong.";
+        }
+        messageEl.className = 'form-message text-red-500';
+      });
+    }
+  }).catch(error => {
+    messageEl.textContent = "Oops! Network error.";
+    messageEl.className = 'form-message text-red-500';
+  });
+});
+</script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true // Only animate once per element
+  });
+</script>
+
+  </body>
+</html>

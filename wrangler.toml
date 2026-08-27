@@ -1,0 +1,11 @@
+name = "leadtech-website"
+compatibility_date = "2026-08-26"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "leadtech-website"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+[vars]
+NOTIFY_EMAIL = "info@leadtechsoftwaresolutions.co.za"
+FROM_EMAIL = "LeadTech Website <website@leadtechsoftwaresolutions.co.za>"
