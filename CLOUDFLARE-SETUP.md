@@ -1,8 +1,8 @@
 # Cloudflare form setup
 
 1. In Cloudflare, add `leadtechsoftwaresolutions.co.za` and enable Email Routing. Create the address `info@leadtechsoftwaresolutions.co.za` and route it to a mailbox you can access.
-2. Create a D1 database named `leadtech-website`. Put its ID in `wrangler.toml`, then run `npx wrangler d1 execute leadtech-website --remote --file=schema.sql` from this folder.
-3. Deploy this folder as a Cloudflare Pages project. Set the `DB` D1 binding to the database above.
+2. Create a D1 database named `leadtech-website`. In Pages, open **Settings > Functions > D1 database bindings**, add the database with variable name `DB`, and run the contents of `schema.sql` once in the D1 Console.
+3. Deploy this folder as a Cloudflare Pages project. Leave **Build command**, **Deploy command**, and **Version command** empty. Set **Root directory** to `/`.
 4. Create a Resend account, verify `leadtechsoftwaresolutions.co.za`, and add the Pages secret `RESEND_API_KEY`. Keep `FROM_EMAIL` on that verified domain.
 5. Add a Pages secret named `ADMIN_TOKEN`. To view subscribers, request `/api/forms` with `Authorization: Bearer YOUR_ADMIN_TOKEN`.
 
