@@ -1,4 +1,4 @@
-const ALLOWED_ORIGIN = "https://leadtechsoftwaresolutions.co.za";
+const ALLOWED_ORIGIN = "https://leadtechweb.michaelmokhoro08.workers.dev";
 const MAX_FIELD_LENGTH = 5000;
 
 function json(data, status = 200) {
@@ -21,24 +21,29 @@ function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-async function sendEmail(env, subject, text) {
-  if (!env.RESEND_API_KEY) return;
+async function sendEmailViaZoho(env, subject, text, fromEmail) {
+  if (!env.ZOHO_API_KEY) throw new Error("Zoho API key not configured");
 
-  const response = await fetch("https://api.resend.com/emails", {
+  const response = await fetch("https://mail.zoho.com/api/accounts/sendmailv2", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      Authorization: `Zoho-oauthtoken ${env.ZOHO_API_KEY}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      from: env.FROM_EMAIL || "LeadTech Website <website@leadtechsoftwaresolutions.co.za>",
-      to: [env.NOTIFY_EMAIL || "info@leadtechsoftwaresolutions.co.za"],
-      subject,
-      text
+      fromAddress: fromEmail,
+      toAddress: "info@leadtechsoftwaresolutions.co.za",
+      subject: subject,
+      content: text,
+      mailFormat: "plaintext"
     })
   });
 
-  if (!response.ok) throw new Error("Email delivery failed");
+  if (!response.ok) {
+    const error = await response.text();
+    console.error("Zoho API Error:", error);
+    throw new Error("Email delivery failed");
+  }
 }
 
 export async function onRequestOptions() {
@@ -57,7 +62,11 @@ export async function onRequestPost({ request, env }) {
     await env.DB.prepare(
       "INSERT INTO subscribers (email) VALUES (?) ON CONFLICT(email) DO UPDATE SET subscribed_at = CURRENT_TIMESTAMP"
     ).bind(email).run();
-    await sendEmail(env, "New LeadTech newsletter subscriber", `New subscriber: ${email}`);
+    try {
+      await sendEmailViaZoho(env, "New LeadTech newsletter subscriber", `New subscriber: ${email}`, "noreply@leadtechsoftwaresolutions.co.za");
+    } catch (error) {
+      console.error("Newsletter email failed:", error);
+    }
     return json({ ok: true, message: "Thanks for subscribing!" });
   }
 
@@ -69,11 +78,16 @@ export async function onRequestPost({ request, env }) {
   await env.DB.prepare(
     "INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)"
   ).bind(name, email, subject, message).run();
-  await sendEmail(
-    env,
-    `New website enquiry: ${subject}`,
-    `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`
-  );
+  try {
+    await sendEmailViaZoho(
+      env,
+      `New website enquiry: ${subject}`,
+      `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`,
+      "forms@leadtechsoftwaresolutions.co.za"
+    );
+  } catch (error) {
+    console.error("Contact form email failed:", error);
+  }
   return json({ ok: true, message: "Thank you! We will get back to you shortly." });
 }
 
